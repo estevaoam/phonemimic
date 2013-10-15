@@ -9,6 +9,9 @@
     "express": "3.4.0",
     "ejs": "*",
     "qrcode-npm": "*",
-    "socket.io": "*"
+    "socket.io": "*",
+    "connect": "*",
+    "express-load": "*",
+    "redis": "*"
   }
 }
