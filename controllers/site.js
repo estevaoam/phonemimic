@@ -8,17 +8,23 @@ exports.index = function(req, res, next) {
   var session = new app.models.session.Session();
   session.save();
   var sid = session.getSid();
+  var sio = app.clients.sio.of('/' + sid);
+  var url = "http://" + req.headers.host + "/client/" + sid;
 
   // Create qrcode
   var qr = QRCode.qrcode(4, 'M');
-  qr.addData(sid);
+  qr.addData(url);
   qr.make();
   var imageTag = qr.createImgTag(4);
 
   // Starts socket.io socket
-  app.clients.sio.of('/' + sid).on('connection', function(socket){
+  sio.on('connection', function(socket){
     console.log('User ' + socket.sessionID +  ' connected!')
     socket.emit('welcome', 'Welcome user!');
+  });
+
+  sio.on('orientation', function(data){
+    console.log(data);
   });
 
   res.render('index', { sid: sid, imageTag: imageTag });

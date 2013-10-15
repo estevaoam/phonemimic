@@ -5,4 +5,10 @@ socket.on('connect', function(data) {
 
 socket.on('welcome', function(data) {
   console.log(data);
-});
+})
+
+var handleOrientation = function(event) {
+  console.log(event);
+}
+
+window.addEventListener('deviceorientation', handleOrientation, true);
