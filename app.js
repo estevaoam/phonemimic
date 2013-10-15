@@ -5,9 +5,10 @@
 
 var express = require('express');
 var routes = require('./routes');
+var controllers = require('./controllers');
 var http = require('http');
 var path = require('path');
-
+var io = require('socket.io');
 var app = express();
 
 // all environments
@@ -30,6 +31,11 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 
-http.createServer(app).listen(app.get('port'), function(){
+var server = http.createServer(app);
+
+// Load controllers
+controllers.LightsaberMovements.start(io.listen(server));
+
+server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
