@@ -11,6 +11,7 @@ $(function(){
   });
 
   socket.on('showMovements', function(data){
+    console.log(data);
     xEl.text(data.alpha);
     yEl.text(data.beta);
     zEl.text(data.gamma);

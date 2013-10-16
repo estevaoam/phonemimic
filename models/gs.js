@@ -24,7 +24,7 @@ GameSession.prototype.createEvents = function(){
 
       socket.on('orientationchange', function(pos){
         console.log(pos);
-        socket.broadcast.in('server').emit('showMovements', pos);
+        socket.broadcast.to('server').emit('showMovements', pos);
       });
     });
   });
