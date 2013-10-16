@@ -12,10 +12,12 @@ exports.index = function(req, res, next) {
   var url = "http://" + req.headers.host + "/client/" + sid;
 
   // Create qrcode
-  var qr = QRCode.qrcode(4, 'M');
+  var qr = QRCode.qrcode(10, 'M');
+  console.log(url);
   qr.addData(url);
   qr.make();
   var imageTag = qr.createImgTag(4);
+
 
   // Starts socket.io socket
   sio.on('connection', function(socket){
