@@ -1,19 +1,19 @@
 var QRCode = require('qrcode-npm');
 var crypto = require('crypto');
 
-exports.index = function(req, res, next) {
+exports.server = function(req, res, next) {
   var app = req.app;
 
-  // Create a session if for the window
-  var session = new app.models.session.Session();
-  session.save();
-  var sid = session.getSid();
-  var sio = app.clients.sio.of('/' + sid);
+  // Create a session for the window
+  var sio = app.clients.sio;
+  var gameSession = new app.models.gs.GameSession({ socketIO: sio });
+  var sid = gameSession.getSid();
+
+  // Url
   var url = "http://" + req.headers.host + "/client/" + sid;
 
   // Create qrcode
   var qr = QRCode.qrcode(10, 'M');
-  console.log(url);
   qr.addData(url);
   qr.make();
   var imageTag = qr.createImgTag(4);
@@ -29,7 +29,7 @@ exports.index = function(req, res, next) {
     console.log(data);
   });
 
-  res.render('index', { sid: sid, imageTag: imageTag });
+  res.render('server', { sid: sid, imageTag: imageTag });
 }
 
 exports.client = function(req, res, next) {
