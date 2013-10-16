@@ -11,9 +11,8 @@ $(function(){
   });
 
   socket.on('showMovements', function(data){
-    console.log(data);
-    xEl.text(data.alpha);
-    yEl.text(data.beta);
-    zEl.text(data.gamma);
+    xEl.html(data.alpha);
+    yEl.html(data.beta);
+    zEl.html(data.gamma);
   });
 });
