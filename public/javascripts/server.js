@@ -50,8 +50,8 @@ $(function(){
   function animate(x, y, z) {
 
     mesh.rotation.x = x*Math.PI / 180;
-    mesh.rotation.y = y*Math.PI / 180;
-    mesh.rotation.z = z*Math.PI / 180;
+    mesh.rotation.y = z*Math.PI / 180;
+    mesh.rotation.z = y*Math.PI / 180;
 
     renderer.render( scene, camera );
   }
