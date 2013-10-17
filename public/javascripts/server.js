@@ -1,6 +1,7 @@
 $(function(){
   var host = location.origin.replace(/^http/, 'ws');
   var socket = io.connect(host + '/' + sid);
+  var firstTime = true;
 
   var xEl = $('#x'),
       yEl = $('#y'),
@@ -15,7 +16,7 @@ $(function(){
         y = data.gamma.toFixed(2),
         z = data.alpha.toFixed(2);
 
-    if (firstTime) {
+    if (firstTime == true) {
       firstTime = false;
       init();
     }
