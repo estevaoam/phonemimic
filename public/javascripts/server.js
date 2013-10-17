@@ -51,7 +51,7 @@ $(function(){
 
     mesh.rotation.x = x*Math.PI / 180;
     mesh.rotation.y = z*Math.PI / 180;
-    mesh.rotation.z = y*Math.PI / 180;
+    mesh.rotation.z = -1 * (y*Math.PI / 180);
 
     renderer.render( scene, camera );
   }
