@@ -35,7 +35,7 @@ $(function(){
 
     scene = new THREE.Scene();
 
-    geometry = new THREE.CubeGeometry( 200, 200, 200 );
+    geometry = new THREE.CubeGeometry( 58.6 * 5, 123.8 * 5, 7.6 * 5 );
     material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
 
     mesh = new THREE.Mesh( geometry, material );
@@ -55,4 +55,7 @@ $(function(){
 
     renderer.render( scene, camera );
   }
+
+  init();
+  animate(50, 100, 20);
 });
