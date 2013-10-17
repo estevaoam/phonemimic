@@ -12,9 +12,9 @@ $(function(){
   });
 
   socket.on('showMovements', function(data){
-    var x = data.beta.toFixed(2),
-        y = data.gamma.toFixed(2),
-        z = data.alpha.toFixed(2);
+    var x = data.beta,
+        y = data.gamma,
+        z = data.alpha;
 
     if (firstTime == true) {
       firstTime = false;
