@@ -55,7 +55,4 @@ $(function(){
 
     renderer.render( scene, camera );
   }
-
-  init();
-  animate(50, 100, 20);
 });
