@@ -51,7 +51,6 @@ $(function(){
     var loader = new THREE.OBJMTLLoader();
     loader.load('/iPhone5.obj', '/iPhone5.mtl', function(object){
       mesh = object;
-      mesh.position.y = -80;
       scene.add(mesh);
     });
 
