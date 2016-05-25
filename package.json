@@ -9,7 +9,7 @@
     "express": "3.4.0",
     "ejs": "*",
     "qrcode-npm": "*",
-    "socket.io": "*",
+    "socket.io": "0.9.14",
     "connect": "*",
     "express-load": "*",
     "redis": "*"

@@ -7,7 +7,6 @@ var connect = require('connect');
 var http = require('http');
 var path = require('path');
 var app = express();
-var sessionStore = new connect.session.MemoryStore();
 var load = require('express-load');
 
 load('clients')
@@ -25,7 +24,6 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.cookieParser('your secret here'));
-app.use(express.session(sessionStore));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
